@@ -22,7 +22,7 @@ USER root
 
 RUN set -ex; \
     \
-    adduser jenkins ping
+    adduser jenkins ping; \
     \
     apk add --no-cache \
         curl \
