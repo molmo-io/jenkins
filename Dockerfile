@@ -22,6 +22,8 @@ USER root
 
 RUN set -ex; \
     \
+    adduser jenkins ping
+    \
     apk add --no-cache \
         curl \
         docker \
@@ -41,6 +43,8 @@ RUN set -ex; \
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 USER jenkins
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/sbin/tini", "--", "/usr/local/bin/jenkins.sh"]
