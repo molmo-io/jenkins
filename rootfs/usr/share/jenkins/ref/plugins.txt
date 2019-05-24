@@ -22,3 +22,4 @@ thinBackup
 timestamper
 workflow-aggregator
 workflow-multibranch
+ssh-agent
